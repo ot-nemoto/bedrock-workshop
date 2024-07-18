@@ -2,3 +2,5 @@ boto3
 streamlit
 langchain
 langchain-aws
+pdfminer
+pymupdf4llm

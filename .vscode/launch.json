@@ -18,6 +18,13 @@
             "module": "streamlit",
             "console": "integratedTerminal",
             "args": ["run", "${workspaceFolder}/basic/python2/basic-web.py"]
+        },
+        {
+            "name": "pdf/pdf1",
+            "type": "debugpy",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "${workspaceFolder}/pdf/pdf1/parse_text.py"
         }
     ]
 }

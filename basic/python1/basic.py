@@ -1,5 +1,6 @@
-import boto3
 import json
+
+import boto3
 
 #モデルの設定
 #modelId="anthropic.claude-3-sonnet-20240229-v1:0"

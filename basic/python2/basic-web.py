@@ -1,5 +1,6 @@
-import boto3
 import json
+
+import boto3
 import streamlit as st
 
 # Web I/Fの追加
@@ -26,10 +27,10 @@ if send_button and system_prompt and user_prompt:
             "messages": [{"role": "user","content": user_prompt}]
         }
     )
-    
+
     # Bedrockの呼び出し
     response = bedrock.invoke_model(body=body,modelId=modelId)
-    
+
     # Bedrock呼出し結果の抽出
     response_body = json.loads(response.get('body').read())
     answer = response_body["content"][0]["text"]
