@@ -1,10 +1,11 @@
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_aws.chat_models import ChatBedrock
+import streamlit as st
+
 # from langchain_aws.retrievers import AmazonKendraRetriever
 from langchain_aws import AmazonKendraRetriever
+from langchain_aws.chat_models import ChatBedrock
 from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
-import streamlit as st
 
 st.title("Kendra RAGアプリケーションサンプル")
 use_model = st.selectbox("使用するモデルを選択してください",("Sonnet","Haiku"))
@@ -28,20 +29,20 @@ if send_button and user_input:
             ("human","{question}")
         ]
     )
-    
+
     # LLMの定義
     LLM = ChatBedrock(model_id=modelId, model_kwargs={"temperature": 0, "max_tokens": 4000})
-    
+
     # Retriever(Kendra)の定義（Kendra Index ID、言語、取得件数）
     retriever = AmazonKendraRetriever(
         index_id="490431df-ce2f-4c25-9a4f-7865f3958429",
         attribute_filter={"EqualsTo": {"Key": "_language_code","Value": {"StringValue": "ja"}}},
         top_k=30
     )
-    
+
     # chainの定義
     chain = {"context": retriever, "question": RunnablePassthrough()} | prompt | LLM | StrOutputParser()
-    
+
     # chainの実行
     answer = chain.invoke(user_input)
 
