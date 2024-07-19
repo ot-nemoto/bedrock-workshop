@@ -4,6 +4,7 @@
     // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        // 基礎編
         {
             "name": "basic/python1",
             "type": "debugpy",
@@ -19,6 +20,16 @@
             "console": "integratedTerminal",
             "args": ["run", "${workspaceFolder}/basic/python2/basic-web.py"]
         },
+        // RAG編
+        {
+            "name": "rag/kendra2",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "streamlit",
+            "console": "integratedTerminal",
+            "args": ["run", "${workspaceFolder}/rag/kendra2/rag-kendra.py"]
+        },
+        // PDF解析編
         {
             "name": "pdf/pdf1",
             "type": "debugpy",
@@ -48,6 +59,7 @@
             "console": "integratedTerminal",
             "args": ["run", "${workspaceFolder}/pdf/pdf4/pdf-web.py"]
         },
+        // 画像解析編
         {
             "name": "image",
             "type": "debugpy",
@@ -55,6 +67,15 @@
             "module": "streamlit",
             "console": "integratedTerminal",
             "args": ["run", "${workspaceFolder}/image/image-web.py"]
+        },
+        // Custom
+        {
+            "name": "custom/rag",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "streamlit",
+            "console": "integratedTerminal",
+            "args": ["run", "${workspaceFolder}/custom/rag/web.py"]
         }
     ]
 }

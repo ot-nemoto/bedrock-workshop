@@ -19,6 +19,8 @@ if send_button and user_input:
         modelId = "anthropic.claude-3-haiku-20240307-v1:0"
 
     # promptの定義
+    # system: システムプロンプト: AIシステムが動作する際に内部的に使用される指示やガイドラインを指す
+    # user: ユーザープロンプト: ユーザーがAIに対して入力するテキストや指示のことを指す
     prompt = ChatPromptTemplate.from_messages(
         [
             (
@@ -39,7 +41,7 @@ if send_button and user_input:
 
     # Retriever(Kendra)の定義（Kendra Index ID、言語、取得件数）
     retriever = AmazonKendraRetriever(
-        index_id="f20eb549-f7f2-44b5-90e1-7fed679c752a",
+        index_id="f0ffec2a-6cb9-4498-8e2e-2196c93e57d3",
         attribute_filter={
             "EqualsTo": {"Key": "_language_code", "Value": {"StringValue": "ja"}}
         },
@@ -47,6 +49,8 @@ if send_button and user_input:
     )
 
     # chainの定義
+    # chain: 複数のAIモデルや処理ステップを連続的に組み合わせて、複雑なタスクを実行する手法
+    # RunnablePassthrough: ユーザーの入力をそのまま出力するRunnable
     chain = (
         {"context": retriever, "question": RunnablePassthrough()}
         | prompt
