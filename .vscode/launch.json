@@ -32,6 +32,13 @@
             "request": "launch",
             "console": "integratedTerminal",
             "program": "${workspaceFolder}/pdf/pdf2/parse_html.py"
+        },
+        {
+            "name": "pdf/pdf3",
+            "type": "debugpy",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "${workspaceFolder}/pdf/pdf3/parse_md.py"
         }
     ]
 }
