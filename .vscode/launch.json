@@ -39,6 +39,14 @@
             "request": "launch",
             "console": "integratedTerminal",
             "program": "${workspaceFolder}/pdf/pdf3/parse_md.py"
+        },
+        {
+            "name": "pdf/pdf4",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "streamlit",
+            "console": "integratedTerminal",
+            "args": ["run", "${workspaceFolder}/pdf/pdf4/pdf-web.py"]
         }
     ]
 }
