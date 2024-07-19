@@ -47,6 +47,14 @@
             "module": "streamlit",
             "console": "integratedTerminal",
             "args": ["run", "${workspaceFolder}/pdf/pdf4/pdf-web.py"]
+        },
+        {
+            "name": "image",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "streamlit",
+            "console": "integratedTerminal",
+            "args": ["run", "${workspaceFolder}/image/image-web.py"]
         }
     ]
 }
